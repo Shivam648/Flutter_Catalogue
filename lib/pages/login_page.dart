@@ -13,6 +13,7 @@ class login_page extends StatefulWidget {
 
 class _login_pageState extends State<login_page> {
   String name = "";
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,25 +62,39 @@ class _login_pageState extends State<login_page> {
                       height: 40,
                     ),
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
+                        setState(() {
+                          changeButton = true;
+                        });
+                        await Future.delayed(Duration(seconds: 1));
                         Navigator.pushNamed(context, MyRoutes.hopmeRoute);
                       },
-                      child: Container(
-                        width: 150,
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        width: changeButton ? 50 : 150,
                         height: 50,
                         alignment: Alignment.center,
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
+                        child: changeButton
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                         decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(10)),
+                            color: Colors.green,
+                            //shape: changeButton
+                            // ? BoxShape.circle
+                            // : BoxShape.rectangle),
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 50 : 8)),
                       ),
-                    )
+                    ),
 
                     /*ElevatedButton(
                       child: Text("Login"),
