@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/widgets/drawer.dart';
 
 class home_page extends StatelessWidget {
   final String name = "Shivam Jaiswal";
@@ -15,7 +16,7 @@ class home_page extends StatelessWidget {
               ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
