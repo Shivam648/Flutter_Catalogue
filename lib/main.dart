@@ -17,9 +17,14 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: ThemeData(primarySwatch: Colors.deepOrange),
       darkTheme: ThemeData(
-        //brightness: Brightness.dark,
-        primarySwatch: Colors.green,
-      ),
+          //brightness: Brightness.dark,
+          primarySwatch: Colors.green,
+          appBarTheme: AppBarTheme(
+            color: Colors.white,
+            elevation: 0.0,
+            iconTheme: IconThemeData(color: Colors.black),
+            textTheme: Theme.of(context).textTheme,
+          )),
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.hopmeRoute,
       routes: {
