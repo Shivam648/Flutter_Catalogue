@@ -7,7 +7,13 @@ class home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter_Catalog"),
+        /*backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),*/
+        title: Text(
+          "Flutter_Catalog",
+          // style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Center(
         child: Container(
