@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/models/catlog.dart';
 import 'package:flutter_catalog/widgets/drawer.dart';
+import 'package:flutter_catalog/widgets/item_widget.dart';
 
+// ignore: camel_case_types
 class home_page extends StatelessWidget {
   final String name = "Shivam Jaiswal";
   @override
@@ -11,11 +14,16 @@ class home_page extends StatelessWidget {
           "Flutter_Catalog",
         ),
       ),
-      body: Center(
-        child: Container(
-          child: Text("Hello Folks, Am $name"
-              ),
-        ),
+      body: ListView.builder(
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (
+          context,
+          index,
+        ) {
+          return ItemWidget(
+            item: CatalogModel.items[index],
+          );
+        },
       ),
       drawer: MyDrawer(),
     );
