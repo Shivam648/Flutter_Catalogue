@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -44,12 +46,20 @@ class _home_pageState extends State<home_page> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CatalogHeader(),
+            if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+              CatalogList().expand()
+            else
+              Center(
+                child: CircularProgressIndicator(),
+              )
           ],
         ),
       ),
     ));
   }
 }
+
+///hfhgfhf
 
 class CatalogHeader extends StatelessWidget {
   @override
@@ -61,5 +71,35 @@ class CatalogHeader extends StatelessWidget {
         "Trending Products".text.xl2.make(),
       ],
     );
+  }
+}
+
+class CatalogList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: CatalogModel.items.length,
+      itemBuilder: (context, index) {
+        final catalog = CatalogModel.items[index];
+        return CatalogItem(catalog: catalog);
+      },
+    );
+  }
+}
+
+class CatalogItem extends StatelessWidget {
+  final Item catalog;
+
+  const CatalogItem({Key key, @required this.catalog})
+      : assert(catalog != null),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return VxBox(
+        child: Row(
+      children: [Image.network(catalog.image)],
+    )).white.square(100).make();
   }
 }
