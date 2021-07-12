@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_catalog/models/catlog.dart';
-import 'package:flutter_catalog/pages/home_widgets/catalog_header.dart';
-import 'package:flutter_catalog/pages/home_widgets/catalog_list.dart';
+import 'package:flutter_catalog/widgets/home_widgets/catalog_header.dart';
+import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-// ignore: camel_case_types
 class home_page extends StatefulWidget {
   @override
   _home_pageState createState() => _home_pageState();
@@ -56,3 +55,4 @@ class _home_pageState extends State<home_page> {
         ));
   }
 }
+
