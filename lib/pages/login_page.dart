@@ -1,8 +1,4 @@
-//import 'dart:html';
-
-// ignore: unused_import
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_catalog/pages/util/routes.dart';
@@ -23,7 +19,7 @@ class _login_pageState extends State<login_page> {
         changeButton = true;
       });
       await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.hopmeRoute);
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
       setState(() {
         changeButton = false;
       });
