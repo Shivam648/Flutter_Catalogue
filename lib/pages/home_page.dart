@@ -54,3 +54,5 @@ class _home_pageState extends State<home_page> {
         ));
   }
 }
+
+CatalogHeader() {}
